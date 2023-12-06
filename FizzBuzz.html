@@ -1,0 +1,83 @@
+<html>
+<body>
+
+<button onclick="fizzBuzz()">Calculate FizzBuzz</button>
+
+<script src="html.js"></script>
+
+<script>
+  html.meta.commands["pre"] = function(elt, env) {
+    let divider = env.stack.pop();
+    let operand = env.stack.pop();
+    env.stack.push(operand % divider);
+  }
+
+  html.meta.commands["output"] = function(elt, env) {
+    let text = env.stack[env.stack.length-1];
+    var consoleDiv = document.getElementById("console");
+    var content = document.createTextNode(text);
+    consoleDiv.appendChild(content);
+  }
+
+  html.meta.commands["br"] = function(elt, env) {
+    var consoleDiv = document.getElementById("console");
+    var content = document.createElement("br");
+    consoleDiv.appendChild(content);
+  }
+
+</script>
+
+<main>
+  <dfn id="fizzBuzz">
+    <data value="0"></data> <!-- loop counter -->
+    <data id="loop" value="1"></data> <!-- loop increment -->
+    <cite>false</cite>
+    <var title="fizzBuzzFlag"></var> <!-- set fizzBuzzFlag to false -->
+    <dd></dd> <!-- Increase loop counter -->
+    <dt></dt>
+    <data value="100"></data>
+    <big></big>
+    <i> <!-- if loop counter 10 quit -->
+      <rt></rt>
+    </i>
+
+    <dt></dt>
+    <data value="3"></data>
+    <pre></pre> <!-- get mod 3 -->
+    <bdi></bdi> <!-- not -->
+    <i> <!-- If divisable by 3 output Fizz -->
+      <s>Fizz</s>
+      <output></output>
+      <del></del>
+      <cite>true</cite>
+      <var title="fizzBuzzFlag"></var>
+    </i>
+
+    <dt></dt>
+    <data value="5"></data>
+    <pre></pre> <!-- get mod 5 -->
+    <bdi></bdi> <!-- not -->
+    <i> <!-- If divisable by 5 output Fizz -->
+      <s>Buzz</s>
+      <output></output>
+      <del></del>
+      <cite>true</cite>
+      <var title="fizzBuzzFlag"></var>
+    </i>
+
+    <cite>fizzBuzzFlag</cite>
+    <bdi></bdi> <!-- not -->
+    <i> <!-- if not fizzBuzzFlag -->
+      <output></output> <!-- output number -->
+    </i>
+
+    <br>
+    <a href="#loop"></a> <!-- goto loop -->
+  </dfn>
+</main>
+
+<div id="console">
+</div>
+
+</body>
+</html>
